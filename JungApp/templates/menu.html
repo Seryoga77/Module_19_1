@@ -1,0 +1,54 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Title</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--    <header>-->
+<!--        {% block pagename %}-->
+<!--        <h1>Главная страница</h1>-->
+<!--        {% endblock %}-->
+<!--    </header>-->
+
+<!--    <nav>-->
+<!--        {% block menu %}-->
+<!--        <ul>-->
+<!--            <p><a href="http://127.0.0.1:8000/platform/">Главная</a></p>-->
+<!--            <p><a href="http://127.0.0.1:8000/games/">Магазин</a></p>-->
+<!--            <p><a href="http://127.0.0.1:8000/cart/">Корзина</a></p>-->
+<!--        </ul>-->
+<!--        {% endblock %}-->
+
+<!--    </nav>-->
+
+<!--    <main>-->
+<!--        {% block content %}-->
+<!--            <p> </p>-->
+<!--        {% endblock %}-->
+<!--    </main>-->
+
+
+
+<!--</body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Список товаров</title>
+</head>
+<body>
+    <h1>Список игр</h1>
+    <ul>
+        {% for game in games %}
+            <li>
+                <strong>{{ game.title }}</strong> | {{ game.description }}. Стоимость: {{ game.price }}
+                <button>Добавить в корзину</button>  <!-- Кнопка для добавления в корзину -->
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

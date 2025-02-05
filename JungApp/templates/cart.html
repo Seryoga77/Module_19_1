@@ -1,0 +1,23 @@
+{% extends 'templates/menu.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина</title>
+</head>
+<body>
+{% block pagename %}
+    <h2>Корзина</h2>
+{% endblock %}
+
+{% block menu %}
+    {{ block.super }}
+{% endblock %}
+
+{% block content %}
+    <h3>Извините, ваша корзина пуста</h3>
+    <button><a href="http://127.0.0.1:8000/platform/">Вернуться обратно</a></button>
+{% endblock %}
+
+</body>
+</html>
