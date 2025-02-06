@@ -1,11 +1,12 @@
-from django.shortcuts import render
 from .forms import UserRegister
-from django.shortcuts import render, redirect
 from .models import Buyer  # Импортируйте модель Buyer
 from django.contrib.auth.models import User  # Импортируйте модель User
 from django.core.exceptions import ValidationError
 from .models import Game
 from django.http import HttpResponse# Create your views here.
+from django.core.paginator import Paginator
+from django.shortcuts import render, redirect
+from .models import News
 
 def platform(request):
     text = 'купить'
@@ -104,6 +105,15 @@ def sign_up_by_html(request):
             return HttpResponse(f'Приветствуем, {username}!')
 
     return render(request, 'registration_page.html', {'info': info})
+
+def news(request):
+    news_list = News.objects.all().order_by('-date')
+    paginator = Paginator(news_list, 10)
+
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+
+    return render(request, 'news.html', {'news': page_obj})
 # def sign_up_by_django(request):
 #     if request.method == "POST":
 #         username = request.POST.get('username')  # Получить имя пользователя из POST-запроса
