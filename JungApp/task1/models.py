@@ -33,3 +33,10 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+
+class MyModel(models.Model):
+    поле1 = models.CharField(max_length=100)
+    поле2 = models.IntegerField()
+
+    class Meta:
+        db_table = 'Baza'
